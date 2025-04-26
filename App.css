@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.container {
+  background-image: url(img/bgroundPokemon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-color: aquamarine;
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 10px;
+  max-height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.positionFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20000;
+  width: 100%;
+  height: auto;
+}
+
+.ptext {
+  background-color: rgb(0, 0, 0);
+  color: gold;
+  border-radius: 10px;
+  border: 5px solid rgb(235, 235, 235);
+  padding: 8px 15px;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.box {
+  margin-top: 100px;
+  max-width: 1920px;
+  width: 100%;
+  min-height: 2000px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-radius: 10px;
+}
+
+.cards {
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  max-width: 200px;
+  width: 100%;
+  min-width: 230px;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgb(117, 115, 115);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.cards:hover {
+  background-color: rgb(255, 220, 220);
+  transition: all .3s;
+}
+
+.cards:hover .imgPokemon {
+  transform: scale(1.4) rotateY(180deg);
+}
+
+.cards:hover .namePokemon {
+  color: red;
+}
+
+.imgPokemon {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  transition: all 1s;
+}
+
+.namePokemon {
+  font-family: "Acme", sans-serif;
+  color: rgb(111, 98, 96);
+  padding: 4px 10px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all .4s;
+}
+
+                    /* Popup-img */
+
+.bgpopup {
+  background-image: url(img/bground2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.bgpopupclass {
+  display: flex;
+}
+
+.noScroll {
+  overflow-y: hidden;
+}
+
+.popup {
+  position: relative;
+  background-image: linear-gradient(to top,
+  green, rgb(231, 231, 231), rgb(222, 220, 220),
+  rgb(27, 157, 222));
+  max-width: 300px;
+  width: 100%;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  border-radius: 10px;
+  animation: colors 1.5s alternate infinite;
+  border: 5px solid rgba(0, 0, 0, 0.888);
+}
+
+@keyframes colors {
+  from {
+    filter:drop-shadow(0 0 1px green );
+  }
+  50% {
+    filter: drop-shadow(0 0 10px red);
+  }
+  to {
+    filter: drop-shadow(0 0 1px gold );
+  }
+}
+
+.popup:hover .titlePopup {
+  animation: none;
+}
+
+.imgPopup {
+  transition: all 1s;
+  max-width: 90%;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  animation: rotatesimg 6s alternate infinite;
+}
+
+@keyframes rotatesimg {
+  from {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+  30% {
+    transform: scale(1.4) translateX(30%) rotate(10deg);
+  }
+  70% {
+    transform: scale(1.2) translateX(-30%) rotate(-20deg);
+  }
+  to {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+}
+
+.imgPopup:hover {
+  animation: none;
+}
+
+.titlePopup {
+  font-family: "Acme", sans-serif;
+  color: rgb(235, 235, 235);
+  padding: 4px 10px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all .4s;
+  text-shadow: 0 0 4px rgb(150, 144, 144);
+  animation: textColor 4s alternate infinite;
+}
+
+@keyframes textColor {
+  from {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+.closedPopup {
+  cursor: pointer;
+  background-color: rgb(251, 251, 251);
+  color: rgb(231, 8, 8);
+  position: absolute;
+  top: -40px;
+  right: -55px;
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 20%;
+}
+
+.closedPopup:hover {
+  background-color: rgb(230, 220, 220);
+  color: rgb(255, 0, 0);
+  transition: all .4s;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+.container {
+  background-image: url(./img/bgroundPokemon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 10px;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+@keyframes rotatesimg {
+  from {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+  30% {
+    transform: scale(1.4) translateX(15%) rotate(10deg);
+  }
+  70% {
+    transform: scale(1.2) translateX(-15%) rotate(-15deg);
+  }
+  to {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+}
+.popup {
+  margin-top: 60px;
+}
+.closedPopup {
+  top: -50px;
+  right: 138.32px;
+}
+
+}
+
+@media (max-width: 550px) {
+
+.container {
+  background-image: url(./img/bgroundPokemon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 10px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+@keyframes rotatesimg {
+  from {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+  30% {
+    transform: scale(1.4) translateX(15%) rotate(10deg);
+  }
+  70% {
+    transform: scale(1.2) translateX(-15%) rotate(-15deg);
+  }
+  to {
+    transform: scale(1) translateX(0) rotate(0);
+  }
+}
+.popup {
+  margin-top: 60px;
+}
+.closedPopup {
+  top: -50px;
+  right: 135px;
+}
+
+}
+
+@media (max-width: 360px) {
+
+  .container {
+    background-image: url(./img/bgroundPokemon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 10px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+  
+  @keyframes rotatesimg {
+    from {
+      transform: scale(1) translateX(0) rotate(0);
+    }
+    30% {
+      transform: scale(1.4) translateX(15%) rotate(10deg);
+    }
+    70% {
+      transform: scale(1.2) translateX(-15%) rotate(-15deg);
+    }
+    to {
+      transform: scale(1) translateX(0) rotate(0);
+    }
+  }
+  
+  .closedPopup {
+    top: -50px;
+    right: 135px;
+  }
+  
+  
+  }
+  
